@@ -1,7 +1,8 @@
 
 var express = require('express');
-var routes = require('./routes');
 var path = require('path');
+var routes = require('./routes');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -24,5 +25,15 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
+
+app.get('/api/v1.0/questions', api.questionsController.getAll);
+app.get('/api/v1.0/questions/:id', api.questionsController.getById);
+app.get('/api/v1.0/questions/:questionId/answers', api.answersController.getForQuestion);
+app.get('/api/v1.0/questions/tagged/:tag', api.questionsController.getByTag);
+app.get('/api/v1.0/tags', api.questionsController.getAllTags);
+app.get('/api/v1.0/users', api.usersController.getAll);
+app.get('/api/v1.0/users/:id', api.usersController.getById);
+app.get('/api/v1.0/users/:id/questions', api.questionsController.getByUserId);
+app.get('/api/v1.0/users/:id/answers', api.answersController.getForUser);
 
 app.listen(app.get('port'));
