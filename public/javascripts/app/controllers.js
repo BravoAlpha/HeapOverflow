@@ -5,8 +5,8 @@ angular.module('heapOverflow.controllers', ['heapOverflow.services'])
 
 	.controller('QuestionsController', function QuestionsController($scope, questionFactory) {
 		questionFactory.getAll(function (questions) {
-				$scope.questions = questions;
-			});
+			$scope.questions = questions;
+		});
 	})
 
 	.controller('QuestionController', function QuestionController($scope, $routeParams, questionFactory, answerFactory) {
@@ -32,4 +32,10 @@ angular.module('heapOverflow.controllers', ['heapOverflow.services'])
 				$location.path('/questions/' + submittedQuestion.id);
 			});
 		};
+	})
+
+	.controller('TagsController', function TagsController($scope, questionFactory) {
+		questionFactory.getAllTags(function(tags) {
+			$scope.tags = tags;
+		});
 	});

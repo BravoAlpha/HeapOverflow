@@ -20,6 +20,13 @@ angular.module('heapOverflow.services', [])
 					.success(function(data, status, headers, config) {
 						callback(data);
 					});
+			},
+
+			getAllTags: function (callback) {
+				$http.get('/api/v1.0/tags')
+					.success(function (data, status, headers, config) {
+						callback(data);
+					});
 			}
 		};
 	})
