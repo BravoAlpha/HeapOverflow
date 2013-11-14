@@ -29,6 +29,7 @@ app.get('/partials/:name', routes.partials);
 app.get('/api/v1.0/questions', api.questionsController.getAll);
 app.get('/api/v1.0/questions/:id', api.questionsController.getById);
 app.get('/api/v1.0/questions/:questionId/answers', api.answersController.getForQuestion);
+app.post('/api/v1.0/questions', api.questionsController.addQuestion);
 app.post('/api/v1.0/questions/:questionId/answers', api.answersController.addAnswer);
 
 app.get('/api/v1.0/questions/tagged/:tag', api.questionsController.getByTag);

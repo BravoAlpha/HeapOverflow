@@ -13,6 +13,13 @@ angular.module('heapOverflow.services', [])
 					.success(function(data, status, headers, config) {
 						callback(data);
 					});
+			},
+
+			addQuestion: function (question, callback) {
+				$http.post('/api/v1.0/questions', question)
+					.success(function(data, status, headers, config) {
+						callback(data);
+					});
 			}
 		};
 	})

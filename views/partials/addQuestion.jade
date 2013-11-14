@@ -1,0 +1,16 @@
+.row
+    .col-md-4
+    .col-md-4
+        h1 Ask Your Question
+        form(name="form")
+            .form-group
+                label(for="title") Title
+                input#title.form-control(type="text", placeholder="Add a title", ng-model="question.title", required)
+            .form-group
+                label(for="content") Content
+                textarea#content.form-control(rows="10", ng-model="question.content", required)
+            .form-group
+                label(for="tags") Tags
+                input#tags.form-control(type="text", placeholder="Comma separated tags", ng-model="question.tags")
+            button.btn.btn-lg.btn-primary(ng-click="addQuestion(question)", ng-disabled="form.$invalid || isUnchanged(question)") Submit
+    .col-md-4

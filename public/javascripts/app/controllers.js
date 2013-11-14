@@ -24,4 +24,12 @@ angular.module('heapOverflow.controllers', ['heapOverflow.services'])
 				$scope.answers.push(submittedAnswer);
 			});
 		};
+	})
+
+	.controller('AddQuestionController', function AddQuestionController($scope, $location, questionFactory) {
+		$scope.addQuestion = function(question) {
+			questionFactory.addQuestion(question, function(submittedQuestion) {
+				$location.path('/questions/' + submittedQuestion.id);
+			});
+		};
 	});

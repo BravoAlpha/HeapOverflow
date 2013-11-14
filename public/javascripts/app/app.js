@@ -8,6 +8,7 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
 		when('/', {templateUrl: 'partials/index', controller: "IndexCtrl"}).
 		when('/questions', {templateUrl: '/partials/questions', controller: "QuestionsController"}).
 		when('/questions/:id', {templateUrl: '/partials/question', controller: "QuestionController"}).
+		when('/addQuestion', {templateUrl: '/partials/addQuestion', controller: "AddQuestionController"}).
 		otherwise({redirectTo: '/'});
 	$locationProvider.html5Mode(true);
 }]);

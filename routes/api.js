@@ -35,7 +35,24 @@ questionsController = {
         questions.getByTag(req.params.tag, function(error, questions){
             res.json(questions || {});
         });
-    }
+    },
+
+    addQuestion: function(req, res){
+
+        var tags = req.body.tags || "";
+        
+        // TODO: The userId is hard coded, change it
+        var question = {
+            userId : 1, 
+            title : req.body.title, 
+            content : req.body.content, 
+            tags : tags.split(',')
+        };
+
+        questions.save(question, function(error, question){
+           res.json(question);
+        });
+    },
 };
 
 usersController = {
