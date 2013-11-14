@@ -1,5 +1,9 @@
-var heapOverflowApp = angular.module('heapOverflowApp', ['ngRoute']);
-heapOverflowApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
+angular.module('heapOverflowApp', [
+	'ngRoute', 
+	'heapOverflow.services',
+	'heapOverflow.controllers'
+]).
+config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$routeProvider.
 		when('/', {templateUrl: 'partials/index', controller: "IndexCtrl"}).
 		when('/questions', {templateUrl: '/partials/questions', controller: "QuestionsController"}).
