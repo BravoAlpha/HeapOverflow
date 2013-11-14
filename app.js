@@ -32,8 +32,8 @@ app.get('/api/v1.0/questions/:questionId/answers', api.answersController.getForQ
 app.post('/api/v1.0/questions', api.questionsController.addQuestion);
 app.post('/api/v1.0/questions/:questionId/answers', api.answersController.addAnswer);
 app.get('/api/v1.0/tags', api.questionsController.getAllTags);
-
 app.get('/api/v1.0/questions/tagged/:tag', api.questionsController.getByTag);
+
 app.get('/api/v1.0/users', api.usersController.getAll);
 app.get('/api/v1.0/users/:id', api.usersController.getById);
 app.get('/api/v1.0/users/:id/questions', api.questionsController.getByUserId);

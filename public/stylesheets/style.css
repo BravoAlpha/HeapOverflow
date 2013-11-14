@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+
+a.tag {
+  margin-right: 10px;
+}

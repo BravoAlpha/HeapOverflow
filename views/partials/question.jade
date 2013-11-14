@@ -1,10 +1,13 @@
 .container
-    h1 {{question.title}}
+    .container
+        h1 {{question.title}}
 
-    .container(ng-repeat="tag in question.tags")
-        a.tag(href='/questions/tagged/{{tag}}') {{tag}}
+    .container
+        span(ng-repeat="tag in question.tags")
+            a.tag(href='/questions/tagged/{{tag}}') {{tag}}
 
-    p {{question.content}}
+    .container
+        p {{question.content}}
 
     .container(ng-show="answers.length > 0")
         h2 Answers
