@@ -9,6 +9,12 @@ angular.module('heapOverflow.controllers', ['heapOverflow.services'])
 		});
 	})
 
+	.controller('QuestionsByTagController', function QuestionsByTagController($scope, $routeParams, questionFactory) {
+		questionFactory.getByTag($routeParams.tag, function (questions) {
+			$scope.questions = questions;
+		});
+	})
+
 	.controller('QuestionController', function QuestionController($scope, $routeParams, questionFactory, answerFactory) {
 
 		questionFactory.getById($routeParams.id, function(question) {

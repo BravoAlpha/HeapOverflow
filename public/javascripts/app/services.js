@@ -8,6 +8,13 @@ angular.module('heapOverflow.services', [])
 					});
 			},
 
+			getByTag: function(tag, callback) {
+				$http.get('/api/v1.0/questions/tagged/' + tag)
+					.success(function(data, status, headers, config) {
+						callback(data);
+					});
+			},
+
 			getById: function(id, callback) {
 				$http.get('/api/v1.0/questions/' + id)
 					.success(function(data, status, headers, config) {

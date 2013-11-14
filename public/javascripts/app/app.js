@@ -7,6 +7,7 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
 	$routeProvider.
 		when('/', {templateUrl: 'partials/index', controller: "IndexCtrl"}).
 		when('/questions', {templateUrl: '/partials/questions', controller: "QuestionsController"}).
+		when('/questions/tagged/:tag', {templateUrl: '/partials/questions', controller: "QuestionsByTagController"}).
 		when('/questions/:id', {templateUrl: '/partials/question', controller: "QuestionController"}).
 		when('/addQuestion', {templateUrl: '/partials/addQuestion', controller: "AddQuestionController"}).
 		when('/tags', {templateUrl: '/partials/tags', controller: "TagsController"}).
