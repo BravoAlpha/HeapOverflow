@@ -1,0 +1,32 @@
+doctype 5
+html(ng-app="heapOverflowApp")
+	head
+		title Heap Overflow
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+	body
+		.navbar.navbar-inverse.navbar-fixed-top
+			.container
+				.navbar-header
+					button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href="/") Heap Overflow
+				.navbar-collapse.collapse
+					ul.nav.navbar-nav
+						li
+							a(href="/questions/") Questions
+						li
+							a(href="/tags/") Tags
+						li
+							a(href="/users/") Users
+					a.btn.btn-lg.btn-success.pull-right(href="/ask") Ask a Question
+		div(ng-view)
+	script(src='/javascripts/lib/angular/angular.js')
+	script(src='/javascripts/lib/angular/angular-route.js')
+	script(src='/javascripts/lib/angular/angular-resource.js')
+	script(src="/javascripts/lib/jquery/jquery-1.10.2.min.js")
+	script(src="/javascripts/lib/bootstrap/bootstrap.min.js")
+	script(src='/javascripts/app/app.js')
+	script(src='/javascripts/app/controllers.js')
