@@ -18,4 +18,10 @@ angular.module('heapOverflow.controllers', ['heapOverflow.services'])
 		answerFactory.getForQuestion($routeParams.id, function(answers) {
 			$scope.answers = answers;
 		});
+
+		$scope.addAnswer = function(answer) {
+			answerFactory.addAnswer($routeParams.id, answer, function(submittedAnswer) {
+				$scope.answers.push(submittedAnswer);
+			});
+		};
 	});

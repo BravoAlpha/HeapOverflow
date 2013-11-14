@@ -1,21 +1,21 @@
 .container
     h1 {{question.title}}
+
     .container(ng-repeat="tag in question.tags")
         a.tag(href='/questions/tagged/{{tag}}') {{tag}}
-    p {{question.content}}
-    .container
-        .container(ng-show="answers.length > 0")
-            h2 Answers
-            .container(ng-repeat="answer in answers")
-                p {{answer.content}}
-        .container(ng-show="answers.length == 0")
-           h2 No answers yet
-           
-    //- TODO: Support forms
 
-    //- .container
-    //-     h2 Post your answer
-    //-     form(method="post", action="/questions/#{q.id}/answer")
-    //-         .form-group
-    //-             textarea#content.form-control(name="content", rows="10")
-    //-         button.btn.btn-lg.btn-primary(type="submit") Submit
+    p {{question.content}}
+
+    .container(ng-show="answers.length > 0")
+        h2 Answers
+        .container(ng-repeat="answer in answers")
+            p {{answer.content}}
+    .container(ng-show="answers.length == 0")
+        h2 No answers yet
+
+    .container
+        h2 Post your answer
+        form(name="form")
+            .form-group
+                textarea#content.form-control(rows="10", ng-model="answer.content", required)
+            button.btn.btn-lg.btn-primary(ng-click="addAnswer(answer)", ng-disabled="form.$invalid || isUnchanged(answer)") Submit

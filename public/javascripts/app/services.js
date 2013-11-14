@@ -24,6 +24,13 @@ angular.module('heapOverflow.services', [])
 					.success(function(data, status, headers, config){
 						callback(data);
 					});
+			},
+
+			addAnswer: function(questionId, answer, callback) {
+				$http.post('/api/v1.0/questions/' + questionId + '/answers', answer)
+					.success(function(data, status, headers, config) {
+						callback(data);
+					});
 			}
 		};
 	});

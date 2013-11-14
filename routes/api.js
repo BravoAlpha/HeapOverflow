@@ -63,7 +63,15 @@ answersController = {
         answers.getForUser(req.params.id, function(error, answers){
            res.json(answers);
         });
-    }
+    },
+
+    addAnswer: function(req, res){
+        // TODO: The userId is hard coded, change it
+        var answer = { questionId: req.params.questionId, userId: 1, content: req.body.content };
+        answers.addAnswer(answer, function(error, answer){
+           res.json(answer);
+        });
+    },
 };
 
 exports.questionsController = questionsController;
