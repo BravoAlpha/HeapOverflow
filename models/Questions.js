@@ -60,7 +60,7 @@ Questions.prototype.save = function (question, callback){
 };
 
 //question {id, userId, creation_date, title, content, tags}
-users.getById(0, function(error, user){
+users.getById(1, function(error, user){
     var questions = new Questions();
     questions.save({userId : user.id, title : "This is question number 1", content : "Content of question number 1", tags : ["Node", "ASP.NET"]}, function(err, question) {});
     questions.save({userId : user.id, title : "This is question number 2", content : "Content of question number 2", tags : ["Express", "Angular"]}, function(err, question) {});

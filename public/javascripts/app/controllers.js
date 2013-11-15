@@ -15,9 +15,11 @@ angular.module('heapOverflow.controllers', ['heapOverflow.services'])
 		};
 	})
 
-	.controller('SignupCtrl', function SignupCtrl($scope, usersFactory) {
+	.controller('SignupCtrl', function SignupCtrl($scope, $location, usersFactory) {
 		$scope.signup = function(user) {
-			usersFactory.addUser(user.username, user.password);
+			usersFactory.addUser(user.username, user.password, function(user) {
+				$location.url('/');
+			});
 		}
 	})
 

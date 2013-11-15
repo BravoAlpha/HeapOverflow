@@ -95,8 +95,7 @@ angular.module('heapOverflow.services', [])
 			addUser: function(username, password, callback) {
 				$http.post('/api/v1.0/users', {username: username, password: password})
 					.success(function(data, status, headers, config) {
-						$rootScope.loggedInUser = data;
-						$location.url('/');
+						callback(data);
 					});
 			},
 

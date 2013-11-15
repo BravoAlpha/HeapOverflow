@@ -1,4 +1,4 @@
-var userCounter = 0;
+var userCounter = 1;
 
 var Users = function () {};
 
