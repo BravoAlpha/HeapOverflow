@@ -62,4 +62,10 @@ angular.module('heapOverflow.controllers', ['heapOverflow.services'])
 		questionFactory.getAllTags(function(tags) {
 			$scope.tags = tags;
 		});
+	})
+
+	.controller('UsersCtrl', function UsersCtrl($scope, usersFactory) {
+		usersFactory.getAll(function(users) {
+			$scope.users = users;
+		})
 	});

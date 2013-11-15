@@ -14,6 +14,7 @@ angular.module('heapOverflowApp', [
 		when('/questions/:id', {templateUrl: '/partials/question', controller: "QuestionCtrl"}).
 		when('/addQuestion', {templateUrl: '/partials/addQuestion', controller: "AddQuestionCtrl"}).
 		when('/tags', {templateUrl: '/partials/tags', controller: "TagsCtrl"}).
+		when('/users', {templateUrl: '/partials/users', controller: "UsersCtrl"}).
 		otherwise({redirectTo: '/'});
 
 	$locationProvider.html5Mode(true);

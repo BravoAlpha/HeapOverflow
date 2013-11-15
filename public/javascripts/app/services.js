@@ -84,6 +84,13 @@ angular.module('heapOverflow.services', [])
 						$rootScope.loggedInUser = data;
 						$location.url('/');
 					});
+			},
+
+			getAll: function(callback) {
+				$http.get('/api/v1.0/users')
+					.success(function(data, status, headers, config) {
+						callback(data);
+					});
 			}
 		};
 	});
