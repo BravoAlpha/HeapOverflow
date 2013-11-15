@@ -42,7 +42,12 @@ Users.prototype.save = function(username, password, callback){
 
 Users.prototype.authenticate = function(username, password, callback){
     var result = this.authenticationData[username] === password;
-    setTimeout(callback.bind(null, null, result), 0);
+    if (!result) {
+        setTimeout(callback.bind(null, null, null), 0);
+    }
+    else {
+        this.getByName(username, callback);
+    }
 };
 
 new Users().save("Moshe", "12345", function(err, question) {});

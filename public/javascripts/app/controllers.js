@@ -1,4 +1,10 @@
 angular.module('heapOverflow.controllers', ['heapOverflow.services'])
+	.controller('LoginCtrl', function IndexCtrl($scope, authenticationFactory) {
+		$scope.login = function(user) {
+			authenticationFactory.login(user.username, user.password);
+		};
+	})
+
 	.controller('IndexCtrl', function IndexCtrl($scope) {
 
 	})

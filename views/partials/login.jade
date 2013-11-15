@@ -1,0 +1,9 @@
+.row
+	.col-md-4
+	.col-md-4
+		form.form-signin(name="form")
+			h2.form-signin-heading Please Sign In
+			input.form-control(type="text", placeholder="Username", autofocus="true", ng-model="user.username", required)
+			input.form-control(type="password", placeholder="Password", ng-model="user.password", required)
+			button.btn.btn-lg.btn-primary.btn-block(ng-click="login(user)", ng-disabled="form.$invalid || isUnchanged(user)") Sign In
+	.col-md-4

@@ -1,4 +1,15 @@
 angular.module('heapOverflow.services', [])
+	.factory('authenticationFactory', function($http, $location) {
+		return {
+			login: function (username, password, callback) {
+				$http.post('/login', {username: username, password: password})
+					.success(function(data, status, headers, config) {
+						$location.url('/');
+					});
+			}
+		};
+	})
+
 	.factory('questionFactory', function($http) {
 		return {
 			getAll: function(callback) {
