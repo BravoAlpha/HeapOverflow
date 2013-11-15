@@ -33,10 +33,14 @@ angular.module('heapOverflow.controllers', ['heapOverflow.services'])
 		});
 	})
 
-	.controller('QuestionCtrl', function QuestionCtrl($scope, $routeParams, questionFactory, answerFactory) {
+	.controller('QuestionCtrl', function QuestionCtrl($scope, $routeParams, questionFactory, answerFactory, usersFactory) {
 
 		questionFactory.getById($routeParams.id, function(question) {
 			$scope.question = question;
+
+			usersFactory.getById(question.userId, function(user) {
+				$scope.user = user;
+			});
 		});
 
 		answerFactory.getForQuestion($routeParams.id, function(answers) {

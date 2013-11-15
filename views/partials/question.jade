@@ -1,6 +1,7 @@
 .container
     .container
         h1 {{question.title}}
+        a.tag(href='/users/{{user.id}}') By {{user.name}}
 
     .container
         span(ng-repeat="tag in question.tags")
