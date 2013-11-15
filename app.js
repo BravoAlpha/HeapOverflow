@@ -80,10 +80,10 @@ app.get('/api/v1.0/questions/tagged/:tag', api.questionsController.getByTag);
 app.post('/api/v1.0/questions', auth, api.questionsController.addQuestion);
 app.post('/api/v1.0/questions/:questionId/answers', auth, api.answersController.addAnswer);
 
-app.post('/api/v1.0/users', api.usersController.addUser);
 app.get('/api/v1.0/users', api.usersController.getAll);
-// app.get('/api/v1.0/users/:id', api.usersController.getById);
-// app.get('/api/v1.0/users/:id/questions', api.questionsController.getByUserId);
-// app.get('/api/v1.0/users/:id/answers', api.answersController.getForUser);
+app.get('/api/v1.0/users/:id', api.usersController.getById);
+app.get('/api/v1.0/users/:id/questions', api.questionsController.getByUserId);
+app.get('/api/v1.0/users/:id/answers', api.answersController.getForUser);
+app.post('/api/v1.0/users', api.usersController.addUser);
 
 app.listen(app.get('port'));

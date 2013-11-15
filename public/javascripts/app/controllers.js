@@ -67,5 +67,19 @@ angular.module('heapOverflow.controllers', ['heapOverflow.services'])
 	.controller('UsersCtrl', function UsersCtrl($scope, usersFactory) {
 		usersFactory.getAll(function(users) {
 			$scope.users = users;
-		})
+		});
+	})
+
+	.controller('UserCtrl', function UsersCtrl($scope, $routeParams, usersFactory, questionFactory, answerFactory) {
+		usersFactory.getById($routeParams.id, function(user) {
+			$scope.user = user;
+		});
+
+		questionFactory.getByUser($routeParams.id, function(questions) {
+			$scope.questions = questions;
+		});
+
+		answerFactory.getByUser($routeParams.id, function(answers) {
+			$scope.answers = answers;
+		});
 	});

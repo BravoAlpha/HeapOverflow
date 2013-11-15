@@ -35,6 +35,13 @@ angular.module('heapOverflow.services', [])
 					});
 			},
 
+			getByUser: function(id, callback) {
+				$http.get('/api/v1.0/users/' + id + '/questions')
+					.success(function(data, status, headers, config) {
+						callback(data);
+					});
+			},
+
 			getById: function(id, callback) {
 				$http.get('/api/v1.0/questions/' + id)
 					.success(function(data, status, headers, config) {
@@ -67,6 +74,13 @@ angular.module('heapOverflow.services', [])
 					});
 			},
 
+			getByUser: function(id, callback) {
+				$http.get('/api/v1.0/users/' + id + '/answers')
+					.success(function(data, status, headers, config) {
+						callback(data);
+					});
+			},
+
 			addAnswer: function(questionId, answer, callback) {
 				$http.post('/api/v1.0/questions/' + questionId + '/answers', answer)
 					.success(function(data, status, headers, config) {
@@ -88,6 +102,13 @@ angular.module('heapOverflow.services', [])
 
 			getAll: function(callback) {
 				$http.get('/api/v1.0/users')
+					.success(function(data, status, headers, config) {
+						callback(data);
+					});
+			},
+
+			getById: function(id, callback) {
+				$http.get('/api/v1.0/users/' + id)
 					.success(function(data, status, headers, config) {
 						callback(data);
 					});
