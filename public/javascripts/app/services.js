@@ -1,9 +1,18 @@
 angular.module('heapOverflow.services', [])
-	.factory('authenticationFactory', function($http, $location) {
+	.factory('authenticationFactory', function($http, $location, $rootScope) {
 		return {
 			login: function (username, password, callback) {
 				$http.post('/login', {username: username, password: password})
 					.success(function(data, status, headers, config) {
+						$rootScope.loggedInUser = data;
+						$location.url('/');
+					});
+			},
+
+			logout: function(callback) {
+				$http.post('/logout')
+					.success(function(data, status, headers, config) {
+						delete $rootScope.loggedInUser;
 						$location.url('/');
 					});
 			}

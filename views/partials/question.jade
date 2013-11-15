@@ -16,7 +16,7 @@
     .container(ng-show="answers.length == 0")
         h2 No answers yet
 
-    .container
+    .container(ng-show="loggedInUser")
         h2 Post your answer
         form(name="form")
             .form-group

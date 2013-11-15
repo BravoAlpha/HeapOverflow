@@ -4,7 +4,7 @@ html(ng-app="heapOverflowApp")
 		title Heap Overflow
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-	body
+	body(ng-controller="NavigationCtrl")
 		.navbar.navbar-inverse.navbar-fixed-top
 			.container
 				.navbar-header
@@ -21,7 +21,11 @@ html(ng-app="heapOverflowApp")
 							a(href="/tags/") Tags
 						li
 							a(href="/users/") Users
-					a.btn.btn-lg.btn-success.pull-right(href="/addQuestion") Ask a Question
+					p.pull-right.navbar-text(ng-show="loggedInUser") {{loggedInUser.name}}
+					a.btn.btn-lg.btn-toolbar.pull-right(ng-click="logout()" ng-show="loggedInUser") Logout
+					a.btn.btn-lg.btn-success.pull-right(href="/addQuestion", ng-show="loggedInUser") Ask a Question
+					a.btn.btn-lg.btn-toolbar.pull-right(href="/login", ng-hide="loggedInUser") Log In
+					a.btn.btn-lg.btn-toolbar.pull-right(href="/signup", ng-hide="loggedInUser") Sign Up
 		div(ng-view)
 	script(src='/javascripts/lib/angular/angular.js')
 	script(src='/javascripts/lib/angular/angular-route.js')

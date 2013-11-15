@@ -8,9 +8,8 @@ var api = require('./routes/api');
 
 var app = express();
 
+// ================== Authentication =================
 passport.use(new LocalStrategy(function(username, password, done) {
-	console.log(username);
-	console.log(password);
 	var users = new Users();
 	users.authenticate(username, password, function(error, user) {
 		if (error) {
@@ -44,6 +43,7 @@ var auth = function(req, res, next) {
 		res.send(401);
 	}
 };
+// ================== Authentication =================
 
 // all environments
 app.set('port', process.env.PORT || 3000);

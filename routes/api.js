@@ -41,9 +41,8 @@ questionsController = {
 
         var tags = req.body.tags || "";
         
-        // TODO: The userId is hard coded, change it
         var question = {
-            userId : 1, 
+            userId : req.user.id, 
             title : req.body.title, 
             content : req.body.content, 
             tags : tags.split(',')
@@ -83,8 +82,7 @@ answersController = {
     },
 
     addAnswer: function(req, res){
-        // TODO: The userId is hard coded, change it
-        var answer = { questionId: req.params.questionId, userId: 1, content: req.body.content };
+        var answer = { questionId: req.params.questionId, userId: req.user.id, content: req.body.content };
         answers.addAnswer(answer, function(error, answer){
            res.json(answer);
         });

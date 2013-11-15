@@ -1,12 +1,18 @@
 angular.module('heapOverflow.controllers', ['heapOverflow.services'])
+	.controller('IndexCtrl', function IndexCtrl($scope) {
+
+	})
+
+	.controller('NavigationCtrl', function NavigationCtrl($scope, authenticationFactory) {
+		$scope.logout = function() {
+			authenticationFactory.logout();
+		};
+	})
+
 	.controller('LoginCtrl', function IndexCtrl($scope, authenticationFactory) {
 		$scope.login = function(user) {
 			authenticationFactory.login(user.username, user.password);
 		};
-	})
-
-	.controller('IndexCtrl', function IndexCtrl($scope) {
-
 	})
 
 	.controller('QuestionsController', function QuestionsController($scope, questionFactory) {
