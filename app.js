@@ -77,13 +77,13 @@ app.get('/api/v1.0/questions/:id', api.questionsController.getById);
 app.get('/api/v1.0/questions/:questionId/answers', api.answersController.getForQuestion);
 app.get('/api/v1.0/tags', api.questionsController.getAllTags);
 app.get('/api/v1.0/questions/tagged/:tag', api.questionsController.getByTag);
-
 app.post('/api/v1.0/questions', auth, api.questionsController.addQuestion);
 app.post('/api/v1.0/questions/:questionId/answers', auth, api.answersController.addAnswer);
 
-app.get('/api/v1.0/users', api.usersController.getAll);
-app.get('/api/v1.0/users/:id', api.usersController.getById);
-app.get('/api/v1.0/users/:id/questions', api.questionsController.getByUserId);
-app.get('/api/v1.0/users/:id/answers', api.answersController.getForUser);
+app.post('/api/v1.0/users', api.usersController.addUser);
+// app.get('/api/v1.0/users', api.usersController.getAll);
+// app.get('/api/v1.0/users/:id', api.usersController.getById);
+// app.get('/api/v1.0/users/:id/questions', api.questionsController.getByUserId);
+// app.get('/api/v1.0/users/:id/answers', api.answersController.getForUser);
 
 app.listen(app.get('port'));

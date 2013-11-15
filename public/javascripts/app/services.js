@@ -74,4 +74,16 @@ angular.module('heapOverflow.services', [])
 					});
 			}
 		};
+	})
+
+	.factory('usersFactory', function($http, $location, $rootScope) {
+		return {
+			addUser: function(username, password, callback) {
+				$http.post('/api/v1.0/users', {username: username, password: password})
+					.success(function(data, status, headers, config) {
+						$rootScope.loggedInUser = data;
+						$location.url('/');
+					});
+			}
+		};
 	});

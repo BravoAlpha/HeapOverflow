@@ -8,11 +8,12 @@ angular.module('heapOverflowApp', [
 	$routeProvider.
 		when('/', {templateUrl: 'partials/index', controller: "IndexCtrl"}).
 		when('/login', {templateUrl: 'partials/login', controller: "LoginCtrl"}).
-		when('/questions', {templateUrl: '/partials/questions', controller: "QuestionsController"}).
-		when('/questions/tagged/:tag', {templateUrl: '/partials/questions', controller: "QuestionsByTagController"}).
-		when('/questions/:id', {templateUrl: '/partials/question', controller: "QuestionController"}).
-		when('/addQuestion', {templateUrl: '/partials/addQuestion', controller: "AddQuestionController"}).
-		when('/tags', {templateUrl: '/partials/tags', controller: "TagsController"}).
+		when('/signup', {templateUrl: 'partials/signup', controller: "SignupCtrl"}).
+		when('/questions', {templateUrl: '/partials/questions', controller: "QuestionsCtrl"}).
+		when('/questions/tagged/:tag', {templateUrl: '/partials/questions', controller: "QuestionsByTagCtrl"}).
+		when('/questions/:id', {templateUrl: '/partials/question', controller: "QuestionCtrl"}).
+		when('/addQuestion', {templateUrl: '/partials/addQuestion', controller: "AddQuestionCtrl"}).
+		when('/tags', {templateUrl: '/partials/tags', controller: "TagsCtrl"}).
 		otherwise({redirectTo: '/'});
 
 	$locationProvider.html5Mode(true);

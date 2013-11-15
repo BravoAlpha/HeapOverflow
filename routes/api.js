@@ -65,6 +65,12 @@ usersController = {
         users.getById(req.params.id, function(error, user){
            res.json(user || {});
         });
+    },
+
+    addUser: function(req, res){
+        users.save(req.body.username, req.body.password, function(error, user){
+            res.json(user);
+        });
     }
 };
 
