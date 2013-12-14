@@ -5,10 +5,14 @@
         form(name="form")
             .form-group
                 label(for="title") Title
-                input#title.form-control(type="text", placeholder="Add a title", ng-model="question.title", required)
+                input#title.form-control(type="text", name="title", placeholder="Add a title", ng-model="question.title", required)
+                div(ng-show="form.title.$dirty && form.title.$invalid")
+                    span(ng-show="form.title.$error.required") Title is mandatory
             .form-group
                 label(for="content") Content
-                textarea#content.form-control(rows="10", ng-model="question.content", required)
+                textarea#content.form-control(rows="10", name="content", ng-model="question.content", required)
+                div(ng-show="form.content.$dirty && form.content.$invalid")
+                    span(ng-show="form.content.$error.required") Content is mandatory
             .form-group
                 label(for="tags") Tags
                 input#tags.form-control(type="text", placeholder="Comma separated tags", ng-model="question.tags")

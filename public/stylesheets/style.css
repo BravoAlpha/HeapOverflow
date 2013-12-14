@@ -10,3 +10,11 @@ a {
 a.tag {
   margin-right: 10px;
 }
+
+input.ng-invalid.ng-dirty {
+	background-color: #FA787E;
+}
+
+textarea.ng-invalid.ng-dirty {
+	background-color: #FA787E;
+}
