@@ -20,18 +20,14 @@ angular.module('heapOverflowApp', [
 
 	$locationProvider.html5Mode(true);
 
-	$httpProvider.responseInterceptors.push(function($q, $location) {
-		return function (promise) {
-			return promise.then(
-				function(response) {
-					return response;
-				},
+	$httpProvider.interceptors.push(function($q, $location) {
+		return {
+			'responseError': function(rejection){
+				if (rejection.status === 401)
+					$location.url('/login');
 
-				function(response) {
-					if (response.status === 401)
-						$location.url('/login');
-					return $q.reject(response);
-				});
+				return $q.reject(rejection);
+			}
 		};
 	});
 }]);
