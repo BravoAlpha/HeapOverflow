@@ -62,9 +62,27 @@ Questions.prototype.save = function (question, callback){
 //question {id, userId, creation_date, title, content, tags}
 users.getById(1, function(error, user){
     var questions = new Questions();
-    questions.save({userId : user.id, title : "This is question number 1", content : "Content of question number 1", tags : ["Node", "ASP.NET"]}, function(err, question) {});
-    questions.save({userId : user.id, title : "This is question number 2", content : "Content of question number 2", tags : ["Express", "Angular"]}, function(err, question) {});
-    questions.save({userId : user.id, title : "This is question number 3", content : "Content of question number 3", tags : ["Express"]}, function(err, question) {});
+
+    questions.save({
+        userId : user.id, 
+        title : "How do I think in AngularJS if I have a jQuery background?", 
+        content : "Suppose I'm familiar with developing client-side applications in jQuery, but now I'd like to start using AngularJS. Can you describe the paradigm shift that is necessary? I'm not looking for a detailed comparison between jQuery and AngularJS.", 
+        tags : ["jQuery", "AngularJS"]
+    }, function(err, question) {});
+
+    questions.save({
+        userId : user.id, 
+        title : "Databinding in AngularJS", 
+        content : "Could someone explain to me how databinding works in the AngularJS framework? I haven't found technical details on their site. It's more or less clear how it works when data is propagated from view to model. But how does AngularJS track changes of model properties without setters and getters? I found that there are JavaScript watchers that may do this work. But they are not supported in IE 6 and 7. So how does AngularJS know that I changed and reflect this change on a view?", 
+        tags : ["JavaScript", "AngularJS"]
+    }, function(err, question) {});
+
+    questions.save({
+        userId : user.id, 
+        title : "Angular.js: service vs provider vs factory", 
+        content : "I'm sure this has bothered you - it has bothered me for some time now. What are the differences between AngularJS module's service, provider and factory?", 
+        tags : ["AngularJS"]
+    }, function(err, question) {});
 });
 
 exports.Questions = Questions;
