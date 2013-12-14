@@ -4,11 +4,11 @@
         a.tag(href='/users/{{user.id}}') By {{user.name}}
 
     .container
-        span(ng-repeat="tag in question.tags")
-            a.tag(href='/questions/tagged/{{tag}}') {{tag}}
+        p {{question.content}}
 
     .container
-        p {{question.content}}
+        span(ng-repeat="tag in question.tags")
+            a.tag(href='/questions/tagged/{{tag}}') {{tag}}
 
     .container(ng-show="answers.length > 0")
         h2 Answers

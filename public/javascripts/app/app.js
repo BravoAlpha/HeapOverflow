@@ -1,7 +1,8 @@
 angular.module('heapOverflowApp', [
 	'ngRoute', 
 	'heapOverflow.services',
-	'heapOverflow.controllers'
+	'heapOverflow.controllers',
+	'heapOverflow.filters'
 ])
 .config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
 

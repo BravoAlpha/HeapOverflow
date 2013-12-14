@@ -6,4 +6,4 @@
         a.lead(href='/questions/{{question.id}}') {{question.title}}
     h1 Answers
     h1(ng-repeat="answer in answers")
-        a.lead(href='/questions/{{answer.questionId}}') {{answer.content}}
+        a.lead(href='/questions/{{answer.questionId}}') {{answer.content | limit:100}}

@@ -2,3 +2,4 @@
 	.container(ng-repeat='question in questions')
 		h1
 			a.lead(href='/questions/{{question.id}}') {{question.title}}
+		p {{question.content | limit:100}}
