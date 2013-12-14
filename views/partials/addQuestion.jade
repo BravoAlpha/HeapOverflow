@@ -12,5 +12,5 @@
             .form-group
                 label(for="tags") Tags
                 input#tags.form-control(type="text", placeholder="Comma separated tags", ng-model="question.tags")
-            button.btn.btn-lg.btn-primary(ng-click="addQuestion(question)", ng-disabled="form.$invalid || isUnchanged(question)") Submit
+            button.btn.btn-lg.btn-primary(ng-click="addQuestion(question)", ng-disabled="form.$invalid") Submit
     .col-md-4
